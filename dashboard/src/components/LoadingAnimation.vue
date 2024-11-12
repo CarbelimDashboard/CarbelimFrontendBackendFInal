@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .loading-overlay {
-  position: absolute; /* Changed to absolute positioning within main content */
+  position: fixed; /* Changed to fixed positioning to cover the entire viewport */
   top: 0;
   left: 0;
   right: 0;
@@ -73,9 +73,6 @@ export default {
   .main-content {
     margin-left: 0;
     padding-bottom: 3.2rem; /* Account for bottom bar in mobile view */
-  }
-  .loading-overlay {
-    bottom: 3.2rem; /* Leave space for the bottom bar */
   }
 }
 </style>

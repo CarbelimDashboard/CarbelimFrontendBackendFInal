@@ -1,8 +1,8 @@
 <template>
   <div class="graph-data container mt-4">
-    <h2 class="text-center mb-4">Graph Data</h2>
+    <h2 class="text-center mb-3">Graph Data</h2>
     <div class="row justify-content-center">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-2">
         <label for="timeRange" class="form-label">Time Range:</label>
         <select v-model="selectedTimeRange" @change="updateTimeRange" class="form-select">
           <option v-for="range in timeRangeData" :key="range.id" :value="range.id">{{ range.name }}</option>
