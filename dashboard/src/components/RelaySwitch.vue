@@ -71,7 +71,7 @@ export default {
       if (newName) {
         this.newName = newName;
         this.$store.commit('updateRelayName', { id: this.id, name: this.newName });
-        Cookies.set(`relayName_${this.id}`, this.newName, { expires: 7 }); // Expires in 7 days
+        Cookies.set(`relayName_${this.id}`, this.newName, { expires: 90 }); // Expires in 90 days
       }
     }
   },
