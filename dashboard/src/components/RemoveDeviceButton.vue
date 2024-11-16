@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie';
 import Swal from 'sweetalert2';
 
 export default {
@@ -25,10 +26,14 @@ export default {
       });
     },
     removeDevice() {
-      this.$store.commit('SET_DEVICE_VALIDITY', false);
-      this.$store.commit('SET_DEVICE_ID', '');
-      document.cookie = "devicevalid=; domain=.carbelim.io; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      this.$router.push('/home');
+        // Clear the Vuex store
+        this.$store.commit('SET_DEVICE_VALIDITY', false);
+        this.$store.commit('SET_DEVICE_ID', '');
+
+        // Remove the cookie
+        Cookies.remove('devicevalid'); // Use the same name as when you set it
+        // Optionally redirect
+        this.$router.push('/home');
     }
   }
 };

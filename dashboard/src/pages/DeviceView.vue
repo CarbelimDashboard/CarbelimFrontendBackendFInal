@@ -46,13 +46,11 @@
 <script>
 import CardsContainer from '../components/CardsContainer.vue';
 import RelayContainer from '../components/RelayContainer.vue';
-import RemoveDeviceButton from '../components/RemoveDeviceButton.vue';
 
 export default {
   components: {
     CardsContainer,
     RelayContainer,
-    RemoveDeviceButton,
   },
   props: {
     deviceIdComponent: null

@@ -160,7 +160,6 @@ export default {
                         path: '/',
                         secure: true,
                         sameSite: 'None',
-                        // domain: '.carbelim.io', // Allow access from all subdomains
                         expires: 90 // 90 days
                     });
                     console.log('Cookie set:', cookieValue); // Console log the cookie value
