@@ -12,8 +12,8 @@ app.use(cookieParser());
 
 const allowedOrigins = [
     // 'https://carbelimdashboardfrontenddeploy.onrender.com',
-    'http://localhost:8080', // To run locally
-    // 'capacitor://localhost', // To allow requests from the Capacitor Android app
+    // 'http://localhost:8080', // To run locally
+    'capacitor://localhost', // To allow requests from the Capacitor Android app
     // 'https://localhost'
 ];
 
@@ -32,17 +32,24 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+const servercheck = express.Router();
 const userRouter = express.Router();
 const realtimData = express.Router();
 const relayControl = express.Router();
 const graphData = express.Router();
 const DownloadData = express.Router();
 
+app.use('/', servercheck);
 app.use('/dashboardverify', userRouter);
 app.use('/togetrealtimedata', realtimData);
 app.use('/relaycontrol', relayControl);
 app.use('/graphdata', graphData);
 app.use('/downloaddata', DownloadData);
+
+
+servercheck
+.route('/')
+.get(toCheckServer);
 
 userRouter
 .route('/')
@@ -119,6 +126,11 @@ const countries = {
     UAE: ['Dubai', 'AbuDhabi', 'Sharjah'],
     Top: ['London', 'Dubai', 'Seoul', 'HongKong', 'NewYork', 'Sydney', 'Paris', 'Rome', 'Tokyo', 'Delhi' ],
   };
+
+
+async function toCheckServer(req, res) {
+    res.json("Carbelim Dashboard Server running");
+}
 
 // Function to fetch AQI data for a city and extract the required pollutants
 const fetchAQIData = async (city) => {
